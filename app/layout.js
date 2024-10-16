@@ -13,10 +13,15 @@ export default function RootLayout({ children }) {
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4">
       <h1 className={"text-base sm:text-lg textGradient " + fugazOne.className}>MOOD TRACKING</h1>
+      <div className="flex items-center justify-between">PLACEHOLDER | CTA</div>
     </header>
   )
 
-  const footer = <footer className="p-4 sm:p-8">footer</footer>
+  const footer = (
+    <footer className="p-4 sm:p-8 grid place-items-center">
+      <p className={"text-indigo-600 " + fugazOne.className}>Created by Allison 🐧</p>
+    </footer>
+  )
   return (
     <html lang="en">
       <body
