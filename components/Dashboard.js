@@ -1,5 +1,6 @@
 import React from "react"
 import { Fugaz_One } from "next/font/google"
+import Calendar from "./Calendar"
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] })
 
@@ -22,7 +23,6 @@ export default function Dashboard() {
     <div className="flex flex-1 flex-col gap-8 sm:gap-10 md:gap-16">
       <div className="grid grid-cols-3 bg-indigo-50 text-indigo-600 rounded-lg gap-4">
         {Object.keys(status).map((state, index) => {
-          console.log("state", status[state])
           return (
             <div key={index} className="p-4 flex flex-col gap-1 sm:gap-2">
               <p className="text-xs sm:text-sm uppercase font-medium truncate ">{state.replaceAll("_", " ")}</p>
@@ -50,6 +50,7 @@ export default function Dashboard() {
           )
         })}
       </div>
+      <Calendar />
     </div>
   )
 }
