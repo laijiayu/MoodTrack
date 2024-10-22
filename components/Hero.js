@@ -2,6 +2,7 @@ import React from "react"
 import { Fugaz_One } from "next/font/google"
 import Button from "./Button"
 import Calendar from "./Calendar"
+import Link from "next/link"
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] })
 
@@ -17,8 +18,12 @@ export default function Hero() {
       </p>
 
       <div className="grid grid-cols-2 gap-4 w-fit mx-auto">
-        <Button text="Login" />
-        <Button text="Sign Up" dark />
+        <Link href="/dashboard">
+          <Button text="Login" />
+        </Link>
+        <Link href="/dashboard">
+          <Button text="Sign Up" dark />
+        </Link>
       </div>
       <Calendar demo />
     </div>
