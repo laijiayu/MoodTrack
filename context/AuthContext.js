@@ -15,7 +15,6 @@ export function AuthProvider({ children }) {
   const [userDataObj, setUserDataObj] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // AUTH HANDLERS
   function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
   }
@@ -33,7 +32,6 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       try {
-        // Set the user to our local context state
         setLoading(true)
         setCurrentUser(user)
         if (!user) {
@@ -41,7 +39,7 @@ export function AuthProvider({ children }) {
           return
         }
 
-        // if user exists, fetch data from firestore database
+        // fetch data from firebase database
         console.log("Fetching User Data")
         const docRef = doc(db, "users", user.uid)
         const docSnap = await getDoc(docRef)

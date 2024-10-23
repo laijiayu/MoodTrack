@@ -34,14 +34,10 @@ export default function Calendar(props) {
   const data = completeData?.[selectedYear]?.[numericMonth] || {}
 
   function handleIncrementMonth(val) {
-    // value +1 -1
-    // if we hit the bounds of the months, then we can just adjust the year that is displayed instead
     if (numericMonth + val < 0) {
-      // set month value = 11 and decrement the year
       setSelectedYear((curr) => curr - 1)
       setSelectMonth(monthsArr[monthsArr.length - 1])
     } else if (numericMonth + val > 11) {
-      // set month val = 0 and increment the year
       setSelectedYear((curr) => curr + 1)
       setSelectMonth(monthsArr[0])
     } else {
@@ -51,10 +47,8 @@ export default function Calendar(props) {
 
   const monthNow = new Date(selectedYear, Object.keys(months).indexOf(selectedMonth), 1)
   const firstDayOfMonth = monthNow.getDay()
-  const daysInMonth = new Date(selectedYear, Object.keys(selectedMonth).indexOf(selectedMonth) + 1, 0).getDate()
-
+  const daysInMonth = new Date(selectedYear, numericMonth + 1, 0).getDate()
   const daysToDisplay = firstDayOfMonth + daysInMonth
-
   const numRows = Math.floor(daysToDisplay / 7) + (daysToDisplay % 7 ? 1 : 0)
 
   return (
@@ -69,7 +63,7 @@ export default function Calendar(props) {
           <i className="fa-solid fa-circle-chevron-left"></i>
         </button>
         <p className={"text-center col-span-3 capitalized whitespace-nowrap textGradient " + fugaz.className}>
-          {selectedYear} {selectedMonth}
+          {selectedMonth}, {selectedYear}
         </p>
         <button
           onClick={() => {

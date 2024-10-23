@@ -3,6 +3,7 @@ import "./globals.css"
 import { Fugaz_One, Open_Sans } from "next/font/google"
 import { AuthProvider } from "@/context/AuthContext"
 import Head from "./head"
+import Logout from "@/components/Logout"
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] })
 const OpenSans = Open_Sans({ subsets: ["latin"] })
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
       <Link href={"/"}>
         <h1 className={"text-base sm:text-lg textGradient " + fugazOne.className}>MOOD TRACKING</h1>
       </Link>
-      <div className="flex items-center justify-between">PLACEHOLDER | CTA</div>
+      <Logout />
     </header>
   )
 
