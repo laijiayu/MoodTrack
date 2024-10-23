@@ -11,7 +11,7 @@ export const CallToAction = () => {
     return (
       <div>
         <Link href={"/dashboard"}>
-          <Button full dark text="Go To Dashboard"></Button>
+          <Button full text="Go To Dashboard"></Button>
         </Link>
       </div>
     )
