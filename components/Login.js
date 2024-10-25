@@ -40,11 +40,13 @@ export default function Login() {
       <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
         placeholder="Email"
         className="rounded-full border-solid border-pink-400 border max-w-[400px] w-full mx-auto px-6 sm:px-10 py-2 sm:py-3 hover:border-pink-600 focus:border-pink-600 outline-none duration-200"
       />
       <input
         value={password}
+        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         type="password"
@@ -53,6 +55,7 @@ export default function Login() {
       <div className="max-w-[400px] w-full mx-auto">
         <Button
           clickHandler={handleSubmit}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           text={authenticating ? "Submitting..." : "Submit"}
           full
           className={" " + fugazOne.className}
