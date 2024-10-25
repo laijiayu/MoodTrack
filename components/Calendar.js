@@ -18,13 +18,12 @@ const months = {
   December: "Dec",
 }
 const monthsArr = Object.keys(months)
-const now = new Date()
 const dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: ["400"] })
 
 export default function Calendar(props) {
-  const { demo, completeData, handleSetMood } = props
+  const { demo, completeData } = props
   const now = new Date()
   const currMonth = now.getMonth()
   const [selectedMonth, setSelectMonth] = useState(Object.keys(months)[currMonth])
